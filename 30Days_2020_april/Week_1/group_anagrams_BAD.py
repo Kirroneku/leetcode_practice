@@ -10,10 +10,11 @@ class Solution:
             orderedString[curLen].append(string)
         
         for curSet in orderedString:
-            grams = []
-            anagrams = {}
-            anagramLength = 0
             while(len(orderedString[curSet]) != 0):
+                grams = []
+                anagrams = {}
+                anagramLength = 0
+
                 for char in orderedString[curSet][0]:
                     if( not char in anagrams ):
                         anagrams[char] = 0
@@ -39,9 +40,9 @@ class Solution:
                     if(isAnagram):
                         grams.append(string)
             
-            for string in grams:
-                orderedString[curSet].remove(string)
+                for string in grams:
+                    orderedString[curSet].remove(string)
 
-            allGrams.append(grams)
+                allGrams.append(grams)
             
         return allGrams

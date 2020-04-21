@@ -12,7 +12,7 @@ var isHappy = function(n) {
         }
 
         seen.add(n);
-        
+
         let newNumber = 0;
         while( n != 0 ) {
             newNumber += (n%10)**2;
@@ -25,11 +25,7 @@ var isHappy = function(n) {
 
 
         n = newNumber
-        console.log(n)
-    }
-    
-    return false;
-    
+    }    
 };
 
 isHappy(2)

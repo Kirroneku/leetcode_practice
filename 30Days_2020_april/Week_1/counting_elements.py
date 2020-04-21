@@ -9,6 +9,6 @@ class Solution:
         count = 0
         for key in numberCount:
             if( key+1 in numberCount):
-                count += min(numberCount[key], numberCount[key+1])
+                count += numberCount[key]
         
         return count
