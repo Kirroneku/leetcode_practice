@@ -4,53 +4,45 @@
  */
 var numIslands = function(grid) {
     let island = 2;
+    if ( grid.length == 0 ) {
+        return 0;
+    }
+
+    let spread = [];
+
     for( let i = 0; i < grid.length; i++){
         for( let j = 0; j < grid[i].length; j++){
             if( grid[i][j] == 1 ) {
                 grid[i][j] = island;
-                if( i < grid.length-1 && grid[i+1][j] == 1 ) {
-                    grid[i+1][j] = island;
-                }
-                if ( j < grid[i].length-1 && grid[i][j+1] == 1  ) {
-                    grid[i][j+1] = island;
-                }
-                if ( j != 0 && grid[i][j-1] == 1  ) {
-                    grid[i][j-1] = island;
-                }
-                if ( i != 0 && grid[i-1][j] == 1  ) {
-                    grid[i-1][j] = island;
+                spread.push([i, j])
+
+                while( spread.length != 0 ) {
+                    let curSpread = spread.pop();
+                    let x = curSpread[0];
+                    let y = curSpread[1];
+
+                    if( x < grid.length-1 && grid[x+1][y] == 1 ) {
+                        grid[x+1][y] = island;
+                        spread.push([x+1, y])
+                    }
+                    if ( y < grid[x].length-1 && grid[x][y+1] == 1  ) {
+                        grid[x][y+1] = island;
+                        spread.push([x, y+1])
+                    }
+                    if ( y != 0 && grid[x][y-1] == 1  ) {
+                        grid[x][y-1] = island;
+                        spread.push([x, y-1])
+                    }
+                    if ( x != 0 && grid[x-1][y] == 1  ) {
+                        grid[x-1][y] = island;
+                        spread.push([x-1, y])
+                    }
                 }
                 island ++;
-                // console.log(grid)
-            } else if( grid[i][j] > 1 ) {
-                let curI = grid[i][j];
-                // console.log(curI)
-                if ( i < grid.length-1 && grid[i+1][j] != 0 ) {
-                    grid[i+1][j] = curI;
-                }
-                if ( j < grid[i].length-1 && grid[i][j+1] != 0 ) {
-                    grid[i][j+1] = curI;
-                }
-                if ( j != 0 && grid[i][j-1] != 0  ) {
-                    grid[i][j-1] = curI;
-                }
-                if ( i != 0 && grid[i-1][j] != 0  ) {
-                    grid[i-1][j] = curI;
-                }
-                
-            }
+            } 
         }
     }
 
-    let sett = new Set();
-
-    for( let i = 0; i < grid.length; i++){
-        for( let j = 0; j < grid[i].length; j++){
-            if(sett.has(grid[i][j])) {
-                sett.add(grid[i][j]);
-            }
-        }
-    }
-
-    return sett.size - 1;
+    return island-2;
 };
+

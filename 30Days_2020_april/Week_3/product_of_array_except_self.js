@@ -6,4 +6,5 @@ var productExceptSelf = function(nums) {
     let output = [];
 
     
+
 };
