@@ -22,7 +22,7 @@ var bstFromPreorder = function(preorder) {
 var addToBst = function(root, node) {
     let transverse = root;
     while( true ) {
-        if( node.val < transverse ) {
+        if( node.val < transverse.val ) {
             if( transverse.left == null ) {
                 transverse.left = node;
                 break;

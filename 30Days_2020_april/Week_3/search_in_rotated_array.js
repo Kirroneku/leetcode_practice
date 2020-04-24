@@ -25,7 +25,7 @@ var search = function(nums, target) {
         if(  cur == target ) {
             return curIndex;
         } else if( cur < target ) {
-
+            
         } else if( cur > target ) { 
 
         }
