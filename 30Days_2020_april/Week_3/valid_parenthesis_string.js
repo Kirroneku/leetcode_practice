@@ -51,5 +51,3 @@ var checkValidString = function(s) {
 
     return true;
 };
-
-console.log(checkValidString("(())((())()()(*)(*()(())())())()()((()())((()))(*"))
