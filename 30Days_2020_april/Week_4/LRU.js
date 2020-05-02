@@ -19,10 +19,10 @@ LRUCache.prototype.get = function(key) {
         return -1;
     }
     
-    console.log(this.lru, this.oldest)
+    console.log(this.oldest, this.lru)
     if( this.lru.get(this.oldest).key == key ) {
         this.oldest++;
-        this.lru.set(this.oldest+this.size-1, {key, value: this.set.get(key)});
+        this.lru.set(this.oldest+this.size-1, {key, 'value': this.set.get(key)});
         return this.set.get(key);
     }
 
@@ -59,7 +59,7 @@ LRUCache.prototype.put = function(key, value) {
         for ( let kv of this.lru ) {
             if(kv[1].key != key) {
                 this.lru.set(this.lru.get(kv[1].key)+1, kv[1]);
-            }
+            } 
         }
     
         this.lru.set(this.oldest+this.capacity-1, {'key': key, 'value': value});
