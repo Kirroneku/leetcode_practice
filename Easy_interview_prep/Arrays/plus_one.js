@@ -5,6 +5,10 @@
 var plusOne = function(digits) {
     let curDigit = digits.length-1;
     while( true ) {
+        if( curDigit < 0 ) {
+            digits.unshift(1);
+            break;
+        } 
         if( digits[curDigit] != 9 ) {
             digits[curDigit] += 1;
             break;
