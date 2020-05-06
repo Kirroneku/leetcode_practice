@@ -12,4 +12,6 @@ var reverseString = function(s) {
         start++;
         end--;
     }
+
+    return s;
 };

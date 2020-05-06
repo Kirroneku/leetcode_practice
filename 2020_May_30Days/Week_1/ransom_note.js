@@ -15,10 +15,10 @@ var canConstruct = function(ransomNote, magazine) {
     }
 
     for( let letter of ransomNote ) {
-        if( lettersAvali.has(s) ) {
-            let avalible = lettersAvali.get(s);
+        if( lettersAvali.has(letter) ) {
+            let avalible = lettersAvali.get(letter);
             if( avalible > 0 ) {
-                lettersAvali.set(s, avalible--);
+                lettersAvali.set(letter, avalible-1);
             } else {
                 return false;
             }

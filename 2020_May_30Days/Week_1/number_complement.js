@@ -17,4 +17,3 @@ var findComplement = function(num) {
     return complement;
 };
 
-console.log(findComplement(2));
