@@ -25,12 +25,8 @@ var atMostNGivenDigitSet = function(D, N) {
     let total = 0;
 
     for( let digit of D ) {
-        // console.log(nums);
-        // console.log(digit, firstDigit, digit < firstDigit)
         if( digit < firstDigit) {
             total += D.length**(stringRep.length-1);      
-        } else if( digit == firstDigit ) {
-            strictParse = true;
         }
     }
 
@@ -40,20 +36,6 @@ var atMostNGivenDigitSet = function(D, N) {
     }
     
 
-    console.log(nums);
-    let unstrictify = false;
-    if( strictParse ) {
-        let strictCombos = 0;
-        for( let i = 1; i < stringRep.length; i++ ) {
-            console.log(stringRep[i]-1, unstrictify)
-            if( unstrictify || D.indexOf(stringRep[i]) == -1 ) {
-                strictCombos += nums[stringRep[i]-1]+(D.length**(stringRep.length-i));
-                break;
-            }
-        }
-        console.log(strictCombos)
-        total += strictCombos;
-    }
 
     let allIn = true;
     console.log(stringRep)

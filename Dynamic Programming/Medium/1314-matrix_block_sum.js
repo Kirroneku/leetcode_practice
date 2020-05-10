@@ -23,7 +23,7 @@ var matrixBlockSum = function(mat, K) {
             combined[i][j] = sum;
         }
     }
-    console.log(combined);
+    // console.log(combined);
 
     for( let i = 0; i < mat.length; i ++) {
         let sum = 0;
@@ -34,30 +34,33 @@ var matrixBlockSum = function(mat, K) {
 
     }
 
-    console.log(combined);
+    // console.log(combined);
 
     for( let i = 0; i < combined.length; i ++) {
         for(let j = 0; j < combined[0].length; j++) {
-            let rowStart = Math.max(-1, i-K);
+            let rowStart = Math.max(-1, i-K-1);
             let rowEnd = Math.min(combined.length-1, i+K);
             
-            let colStart = Math.max(-1, j-K);
+            let colStart = Math.max(-1, j-K-1);
             let colEnd = Math.min(combined[0].length-1, j+K);
 
             let sum = 0;
             if( rowStart != -1 ) {
                 if( colStart != -1 ) {
-                    sum -= combined[rowStart][colStart];
+                    sum += combined[rowStart][colStart];
+                    sum -= combined[rowStart][colEnd];
+                } else {
+                    sum -= combined[rowStart][colEnd];
                 }
-                sum -= combined[rowStart][colEnd];
             }
-           
 
             if( colStart != -1 ) { 
                 sum -= combined[rowEnd][colStart]
             }
 
             sum += combined[rowEnd][colEnd]
+
+            // console.log(rowStart, colStart, rowEnd, colEnd, sum);
 
             mat[i][j] = sum;
         }

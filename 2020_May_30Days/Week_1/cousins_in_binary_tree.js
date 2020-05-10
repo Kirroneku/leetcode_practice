@@ -30,24 +30,24 @@ var isCousins = function(root, x, y) {
 
         if( currentRoot['root'].val == x || currentRoot['root'].val == y ) {
             if ( mustBeOnLevel ) {
-                if( currentRoot['prev'] != mustBeOnPrev ) {
+                if( currentRoot['prev'] == mustBeOnPrev ) {
                     return false;
                 }
                 return true;
             }
-            mustBeOnPrev = cur;
+            mustBeOnPrev = currentRoot['prev'];
             mustBeOnLevel = true;
         }
+        // console.log( currentRoot['root'].val);
 
         if( queue.length == 0 ) {
+            // console.log('NEWWW')
             if( mustBeOnLevel ) {
                 return false;
             }
             queue = next;
             next = [];
         }
-
-        cur++;
     }
 
     return false;

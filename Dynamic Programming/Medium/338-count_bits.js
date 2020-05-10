@@ -11,7 +11,7 @@ var countBits = function(num) {
     let countSet = [0];
     let numOnes = 0;
     for( let i = 0; i < num; i++) {
-        for( let j = numBit.length-1; j > 0; j--) {
+        for( let j = numBit.length-1; j >= 0; j--) {
             if( numBit[j] == 1 ) {
                 numBit[j] = 0;
                 numOnes--;

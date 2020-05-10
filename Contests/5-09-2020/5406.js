@@ -5,5 +5,5 @@
  * @return {number}
  */
 var minTime = function(n, edges, hasApple) {
-    
+
 };

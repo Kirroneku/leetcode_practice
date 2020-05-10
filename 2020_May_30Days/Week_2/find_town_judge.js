@@ -5,21 +5,28 @@
  */
 var findJudge = function(N, trust) {
     let townsPeople = new Set();
+    let peopleThatTrust = [];
+
     for( let i = 1; i < N+1; i++) {
         townsPeople.add(i);
+        peopleThatTrust.push(0);
     }
+
+    let newPerson = false;
+
     for( let person of trust ) {
-        console.log(person[0]);
         if( townsPeople.has(person[0]) ) {
             townsPeople.delete(person[0]);
+            newPerson = true;
         }
+
+        peopleThatTrust[person[1]-1]++;
     }
 
-    console.log(townsPeople)
-
     for( let person of townsPeople ) {
-        console.log(person)
-        return person;
+        if( peopleThatTrust[person-1] == N-1 ) {
+            return person;
+        }
     }
 
     return -1;

@@ -17,6 +17,7 @@ var countTriplets = function(arr) {
     }
 
     console.log(newArr);
+    
 };
 
 countTriplets([2,3,1,6,7])

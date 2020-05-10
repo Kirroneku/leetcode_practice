@@ -4,21 +4,23 @@
  * @return {number}
  */
 var repeatedStringMatch = function(A, B) {
-    let total = 1;
-    while( A.length < B.length) {
+    let total = 0;
+    let ANow = "";
+    while( ANow.length < B.length) {
         total ++;
-        A += A;
+        ANow += A;
+    }
+    if( ANow.indexOf(B) != -1) {
+        return total;
     }
 
-    while( A.length < 10000) {
-        console.log(A);
-        if( A.includes(B) ) {
+    while( ANow.length <= B.length+A.length) {
+        total ++;
+        ANow += A;
+
+        if( ANow.indexOf(B) != -1) {
             return total;
         }
-        
-
-        total ++;
-        A += A;
     }
 
     return -1;
