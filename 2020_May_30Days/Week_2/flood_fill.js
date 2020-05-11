@@ -38,7 +38,7 @@ var floodFill = function(image, sr, sc, newColor) {
         if( c-1 > -1 && image[r][c-1] == findPixel ) {
             pixelsToFlood.push([r, c-1]);
         }
-        console.log(pixelsToFlood)
+        // console.log(pixelsToFlood)
     }
 
     return image;
