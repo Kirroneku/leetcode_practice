@@ -23,8 +23,14 @@ Trie.prototype.insert = function(word) {
     } else {
         let newTrie = new Trie();
         newTrie.val = word[0];
-        this.children.set(word[0], )
+        this.children.set(word[0], newTrie)
+        if( word.length == 1 ) {
+            newTrie.word = true;
+        } else {
+            newTrie.insert(word.substring(1));
+        }
     }
+    // console.log(word)
 };
 
 /**
@@ -58,6 +64,8 @@ Trie.prototype.startsWith = function(prefix) {
         } else {
             return curTrie.startsWith(prefix.substring(1));
         }
+    } else {
+        return false;
     }
 };
 
