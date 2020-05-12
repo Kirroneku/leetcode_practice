@@ -3,7 +3,25 @@
  * @return {number[]}
  */
 var sortArrayByParityII = function(A) {
-   
+    let evens = [];
+    let odds = [];
+    for ( let i = 0; i < A.length; i++ ) {
+        if( A[i] % 2 != i % 2 ) {
+            if( i%2 == 0 ) {
+                evens.push(i);
+            } else {
+                odds.push(i);
+            }
+        }
+    }
+
+    while( evens.length != 0 ) {
+        let even = evens.pop();
+        let odd = odds.pop();
+        let temp = A[even];
+        A[even] = A[odd];
+        A[odd] = temp;
+    }
 
     return A;
 };
