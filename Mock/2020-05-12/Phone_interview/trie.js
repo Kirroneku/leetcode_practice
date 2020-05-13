@@ -30,7 +30,6 @@ Trie.prototype.insert = function(word) {
             newTrie.insert(word.substring(1));
         }
     }
-    // console.log(word)
 };
 
 /**
