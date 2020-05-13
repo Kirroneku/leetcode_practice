@@ -23,7 +23,7 @@ Trie.prototype.insert = function(word) {
     } else {
         let newTrie = new Trie();
         newTrie.val = word[0];
-        this.children.set(word[0], newTrie)
+        this.children.set(word[0], newTrie);
         if( word.length == 1 ) {
             newTrie.word = true;
         } else {
