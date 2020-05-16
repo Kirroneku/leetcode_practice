@@ -12,13 +12,20 @@ var KthLargest = function(k, nums) {
  * @return {number}
  */
 KthLargest.prototype.add = function(val) {
+    if(this.collection.length == 0 ) {
+        this.collection.push(val)
+    }
+
     for( let i = 0; i < this.collection.length; i++ ) {
         if( val > this.collection[i] ) {
             this.collection.splice(i, 0, val);
             break;
+        } else if( i == this.collection.length-1 ) {
+            this.collection.push(val);
+            break;
         }
     }
-    console.log(this.collection)
+    // console.log(this.collection)
     return this.collection[this.k-1];
 };
 

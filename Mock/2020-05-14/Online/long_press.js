@@ -25,5 +25,9 @@ var isLongPressedName = function(name, typed) {
         }
     }
 
+    if( ni < name.length) {
+        return false;
+    }
+
     return true;
 };

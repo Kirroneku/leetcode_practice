@@ -3,10 +3,11 @@
  * @return {number}
  */
 var romanToInt = function(s) {
-    let prev = "";
+    let prev = "NA";
     let number = 0;
 
     let romanMap = {
+        'NA': 0,
         'I': 1, 
         'V': 5,
         'X': 10,
@@ -18,9 +19,9 @@ var romanToInt = function(s) {
 
 
     for( let char of s ) {
-        console.log(char);
+        // console.log(char, romanMap[char]);
         if( romanMap[char] > romanMap[prev] ) {
-            number += romanMap[char] - romanMap[prev];
+            number -= romanMap[prev];
         } else {
             number += romanMap[prev];
         }

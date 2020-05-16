@@ -8,14 +8,17 @@ var fizzBuzz = function(n) {
         let output = "";
         if( i % 3 == 0 ) {
             output += "Fizz";
-        } else if( i % 5 == 0) {
+        } 
+        if( i % 5 == 0) {
             output += "Buzz";
         }
 
         if( output == "" ) {
-            ans.push(n.toString());
+            ans.push(i.toString());
         } else {
             ans.push(output);
         }
     }
+
+    return ans;
 };

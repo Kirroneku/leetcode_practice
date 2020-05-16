@@ -3,5 +3,13 @@
  * @return {boolean}
  */
 var isPowerOfThree = function(n) {
-    return n.toString(n, 3).matches("^10*$");
+    if (n < 1) {
+        return false;
+    }
+
+    while (n % 3 == 0) {
+        n /= 3;
+    }
+
+    return n == 1;
 };
