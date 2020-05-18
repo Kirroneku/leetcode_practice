@@ -1,12 +1,11 @@
 /**
- * @param {string} s
- * @param {string} p
- * @return {number[]}
+ * @param {string} s1
+ * @param {string} s2
+ * @return {boolean}
  */
-var findAnagrams = function(s, p) {
+var checkInclusion = function(p, s) {
     let pAna = new Map();
     let pLen = p.length;
-    
     
     for( let char of p ) {
         if( pAna.has(char) ) {
@@ -18,7 +17,6 @@ var findAnagrams = function(s, p) {
     
     let curLen = 0;
     let curMap = new Map();
-    let theAnagrams = [];
     let firstFound = new Map();
     
     for( let i = 0; i < s.length; i++ ) {
@@ -49,20 +47,10 @@ var findAnagrams = function(s, p) {
             curLen = 0;
         }
         
-        
-        
         if( curLen == pLen ) {
-            theAnagrams.push(i-pLen+1);
-
-            curMap.set(s[i-pLen+1], curMap.get(s[i-pLen])-1);
-            curLen--;
-            if( curMap.get(s[i-pLen+1]) == 0 ) {
-                firstFound.delete(s[i-pLen+1]);
-            } else if( firstFound.get( s[i-pLen+1] ) == i-pLen+1 ) {
-                firstFound.set(s[i-pLen+1], i-pLen + 2 );
-            }
+            return true;
         }
     }
     
-    return theAnagrams;
+    return false;
 };
