@@ -15,7 +15,7 @@ var kthSmallest = function(root, k) {
     let queue = [root];
     let sorted = [];
 
-    while( queue.length != 0 ) {
+    while( queue.length ) {
         let cur = queue.pop();
 
         if( cur.left != null ) {
@@ -29,8 +29,6 @@ var kthSmallest = function(root, k) {
         sorted.push(cur.val);
     }
 
-    sorted = sorted.sort((a,b) => a-b);
-
-    return sorted[k-1];
+    return sorted.sort((a,b) => a-b)[k-1];
 };
 

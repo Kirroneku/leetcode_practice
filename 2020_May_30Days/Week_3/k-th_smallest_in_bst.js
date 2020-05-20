@@ -12,25 +12,24 @@
  * @return {number}
  */
 var kthSmallest = function(root, k) {
-    let queue = [root];
-    let sorted = [];
+    let queue = [];
+    // let sorted = [];
 
-    while( queue.length != 0 ) {
-        let cur = queue.pop();
-
-        if( cur.left != null ) {
-            queue.push(cur.left);
+    while( true ) {
+        while( root != null ) {
+            queue.push(root);
+            root = root.left;
         }
+        root = queue.pop();
 
-        if( cur.right != null ){
-            queue.push(cur.right);
+        if( --k == 0 ) {
+            return root.val;
         }
-
-        sorted.push(cur.val);
+        root = root.right;
     }
 
-    sorted = sorted.sort((a,b) => a-b);
+    // sorted = sorted.sort((a,b) => a-b);
 
-    return sorted[k-1];
+    return root;
 };
 
