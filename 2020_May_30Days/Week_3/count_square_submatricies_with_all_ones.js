@@ -20,7 +20,7 @@ var countSquares = function(matrix) {
             if( i == 0 || j == 0 ) {
                 dp[i][j] = matrix[i][j];
             } else if(matrix[i][j] == 1) {
-                dp[i][j] = Math.min(dp[i - 1][j], min( dp[i-1][j-1], dp[i][j-1] ) ) + 1;
+                dp[i][j] = Math.min(dp[i - 1][j], Math.min( dp[i-1][j-1], dp[i][j-1] ) ) + 1;
             }
 
             squares += dp[i][j];
