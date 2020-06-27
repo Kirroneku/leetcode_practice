@@ -20,8 +20,8 @@ class Solution(object):
         
         while len(queue) != 0:
             current = queue.pop()
-            curNode = current[0];
-            curNum = current[1];
+            curNode = current[0]
+            curNum = current[1]
             
             if( curNode.left == None and curNode.right == None ):
                 total += curNum*10 + curNode.val
